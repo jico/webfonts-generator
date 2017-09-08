@@ -21,7 +21,13 @@ var renderHtml = function(options) {
 	}))
 
 	var ctx = _.extend({
-		names: options.names,
+    icons: options.names.map(function(name) {
+      return {
+        name: name,
+        codepoint: options.codepoints[name],
+        codepointHex: options.codepoints[name].toString(16),
+      };
+    }),
 		fontName: options.fontName,
 		styles: styles
 	}, options.templateOptions)
